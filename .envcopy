@@ -1,0 +1,5 @@
+DB_NAME=rentalytics-alfa
+DB_USER=admin
+DB_PASSWORD=Vacaspurpura
+DB_HOST=3.131.94.59
+DB_PORT=3306

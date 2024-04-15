@@ -1,0 +1,31 @@
+{% extends "defaults/base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center flex-column vh-100">
+
+        <img class="mb-4" src="{% static 'logo.png' %}" height="100px" alt="logo-empresa">
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="pe-3" style="color: white;">{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+
+                <div style="height: 10px;"></div>
+                <tr>
+                    <td class="pe-3" style="color: white;">{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center mt-2">
+                <input type="submit" value="Login">
+                <input type="hidden" name="next" value="{{ next }}">
+            </div>
+        </form>
+    </div>
+{% endblock %}

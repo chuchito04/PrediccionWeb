@@ -1,0 +1,37 @@
+{% extends "defaults/base.html" %}
+
+{%block content %}
+{% include "defaults/header.html" %}
+    <h1>Modelo de Predicción de Resultados de Anuncios</h1>
+    <form method="post" action="{% url 'resultado' %}">
+        {% csrf_token %}
+        <label for="importe_gastado">Importe Gastado:</label>
+        <input type="number" id="importe_gastado" name="importe_gastado" min="0.0" max="20000.00" step="0.01">
+        
+        <label for="clasificacion_descripcion">Clasificación Descripción:</label>
+        <select id="clasificacion_descripcion" name="clasificacion_descripcion">
+            <option value="Atributos">Atributos</option>
+            <option value="Especiales">Especiales</option>
+            <option value="Estratégicas">Estratégicas</option>
+            <option value="Estratégico">Estratégico</option>
+            <option value="Spots">Spots</option>
+            <option value="Territorio">Territorio</option>
+        </select>
+        
+        <label for="objetivo_descripcion">Objetivo Descripción:</label>
+        <select id="objetivo_descripcion" name="objetivo_descripcion">
+            <option value="Interacción">Interacción</option>
+            <option value="ThruPlay">ThruPlay</option>
+        </select>
+        
+        <label for="redsocial_descripcion">Red Social Descripción:</label>
+        <select id="redsocial_descripcion" name="redsocial_descripcion">
+            <option value="Dark Post">Dark Post</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+        </select>
+        
+        <button type="submit">Predict</button>
+    </form>
+    
+{% endblock %}
