@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Rentalitics.wsgi.application'
+WSGI_APPLICATION = 'Rentalitics.wsgi.app'
 
 
 # Database
