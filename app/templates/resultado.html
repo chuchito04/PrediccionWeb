@@ -2,7 +2,10 @@
 
 {%block content %}
 {% include "defaults/header.html" %}
-<h1>Resultado de Predicción</h1>
-<p>La predicción del Resultado Alcanzado es: {{ prediction }}</p>
-
+<div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
+    <div class="text-center px-5 py-4">
+        <legend class="card-title fs-2 fw-bold">Resultado de Predicción</legend>
+        <p class="card-text fs-5">La predicción del Resultado Alcanzado es: <b>{{ prediction }}</b></p>
+    </div>
+</div>
 {% endblock %}
