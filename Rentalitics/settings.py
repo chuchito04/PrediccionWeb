@@ -133,5 +133,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/compiled')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'  # o cualquier otra URL a la que desees redirigir después del inicio de sesión exitoso
+LOGIN_REDIRECT_URL = 'formulario'  # o cualquier otra URL a la que desees redirigir después del inicio de sesión exitoso
 LOGIN_URL = '/accounts/login/'  # URL a la que se redirigirá si el usuario no está autenticado y trata de acceder a una vista protegida
