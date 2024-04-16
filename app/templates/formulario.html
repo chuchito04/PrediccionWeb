@@ -1,79 +1,78 @@
-{% extends "defaults/base.html" %}
+{% extends 'defaults/base.html' %}
 
-{%block content %}
-{% include "defaults/header.html" %}
-{% comment %}     <h1>Modelo de Predicción de Resultados de Anuncios</h1>
-    <form method="post" action="{% url 'resultado' %}">
-        {% csrf_token %}
-        <label for="importe_gastado">Importe Gastado:</label>
-        <input type="number" id="importe_gastado" name="importe_gastado" min="0.0" max="20000.00" step="0.01">
-        
-        <label for="clasificacion_descripcion">Clasificación Descripción:</label>
-        <select id="clasificacion_descripcion" name="clasificacion_descripcion">
+{% block content %}
+  {% include 'defaults/header.html' %}
+{% comment %}   <h1>Modelo de Predicción de Resultados de Anuncios</h1>
+  <form method="post" action="{% url 'resultado' %}">
+    {% csrf_token %}
+    <label for="importe_gastado">Importe Gastado:</label>
+    <input type="number" id="importe_gastado" name="importe_gastado" min="0.0" max="20000.00" step="0.01" />
+
+    <label for="clasificacion_descripcion">Clasificación Descripción:</label>
+    <select id="clasificacion_descripcion" name="clasificacion_descripcion">
+      <option value="Atributos">Atributos</option>
+      <option value="Especiales">Especiales</option>
+      <option value="Estratégicas">Estratégicas</option>
+      <option value="Estratégico">Estratégico</option>
+      <option value="Spots">Spots</option>
+      <option value="Territorio">Territorio</option>
+    </select>
+
+    <label for="objetivo_descripcion">Objetivo Descripción:</label>
+    <select id="objetivo_descripcion" name="objetivo_descripcion">
+      <option value="Interacción">Interacción</option>
+      <option value="ThruPlay">ThruPlay</option>
+    </select>
+
+    <label for="redsocial_descripcion">Red Social Descripción:</label>
+    <select id="redsocial_descripcion" name="redsocial_descripcion">
+      <option value="Dark Post">Dark Post</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Instagram">Instagram</option>
+    </select>
+
+    <button type="submit">Predict</button>
+  </form> {% endcomment %}
+
+  <div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
+    <form class="px-5 py-4" method="post" action="{% url 'resultado' %}">
+      {% csrf_token %}
+      <fieldset>
+        <legend class="text-center fs-2 fw-bold">Modelo de Predicción de Resultados de Anuncios</legend>
+        <div class="mb-3">
+          <label for="importe_gastado" class="form-label">Importe Gastado:</label>
+          <input type="number" id="importe_gastado" name="importe_gastado" min="0.1" step="0.01" class="form-control" placeholder="0.0" required />
+        </div>
+        <div class="mb-3">
+          <label for="clasificacion_descripcion" class="form-label">Clasificación Descripción:</label>
+          <select id="clasificacion_descripcion" name="clasificacion_descripcion" class="form-select">
             <option value="Atributos">Atributos</option>
             <option value="Especiales">Especiales</option>
             <option value="Estratégicas">Estratégicas</option>
             <option value="Estratégico">Estratégico</option>
             <option value="Spots">Spots</option>
             <option value="Territorio">Territorio</option>
-        </select>
-        
-        <label for="objetivo_descripcion">Objetivo Descripción:</label>
-        <select id="objetivo_descripcion" name="objetivo_descripcion">
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="objetivo_descripcion" class="form-label">Objetivo Descripción:</label>
+          <select id="objetivo_descripcion" name="objetivo_descripcion" class="form-select">
             <option value="Interacción">Interacción</option>
             <option value="ThruPlay">ThruPlay</option>
-        </select>
-        
-        <label for="redsocial_descripcion">Red Social Descripción:</label>
-        <select id="redsocial_descripcion" name="redsocial_descripcion">
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="redsocial_descripcion" class="form-label">Red Social Descripción:</label>
+          <select id="redsocial_descripcion" name="redsocial_descripcion" class="form-select">
             <option value="Dark Post">Dark Post</option>
             <option value="Facebook">Facebook</option>
             <option value="Instagram">Instagram</option>
-        </select>
-        
-        <button type="submit">Predict</button>
-    </form> {% endcomment %}
-
-    <div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
-      <form class="px-5 py-4" method="post" action="{% url 'resultado' %}">
-        {% csrf_token %}
-  <fieldset>
-    <legend class="text-center fs-2 fw-bold">Modelo de Predicción de Resultados de Anuncios</legend>
-    <div class="mb-3">
-      <label for="importe_gastado" class="form-label">Importe Gastado:</label>
-      <input type="number" id="importe_gastado" name="importe_gastado" min="0.1" step="0.01" class="form-control" placeholder="0.0" required>
-    </div>
-    <div class="mb-3">
-      <label for="clasificacion_descripcion" class="form-label">Clasificación Descripción:</label>
-      <select id="clasificacion_descripcion" name="clasificacion_descripcion" class="form-select">
-          <option value="Atributos">Atributos</option>
-          <option value="Especiales">Especiales</option>
-          <option value="Estratégicas">Estratégicas</option>
-          <option value="Estratégico">Estratégico</option>
-          <option value="Spots">Spots</option>
-          <option value="Territorio">Territorio</option>
-      </select>
-    </div>
-          <div class="mb-3">
-            <label for="objetivo_descripcion" class="form-label">Objetivo Descripción:</label>
-            <select id="objetivo_descripcion" name="objetivo_descripcion" class="form-select">
-                <option value="Interacción">Interacción</option>
-                <option value="ThruPlay">ThruPlay</option>
-            </select>
-    </div>
-          <div class="mb-3">
-      <label for="redsocial_descripcion" class="form-label">Red Social Descripción:</label>
-      <select id="redsocial_descripcion" class="form-select">
-        <option value="Dark Post">Dark Post</option>
-        <option value="Facebook">Facebook</option>
-        <option value="Instagram">Instagram</option>
-      </select>
-    </div>
-    <div class="text-center">
-    <button type="submit" class="btn btn-dark fw-bold">Predecir</button>
-    </div>
-  </fieldset>
-</form>
-</div>
-    
+          </select>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-dark fw-bold">Predecir</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
 {% endblock %}
