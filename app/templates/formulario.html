@@ -33,6 +33,10 @@
 
     <button type="submit">Predict</button>
   </form> {% endcomment %}
+  <div class="d-flex justify-content-center align-items-center gap-3">
+    <img src="https://purpurasolutions.com/public/assets/imagenes/psolutions/PS_Isotipo_.png" width="30px" height="30px">
+    <img style="width: 200px; max-width: 80vw;" src="https://purpurasolutions.com/public/assets/imagenes/psolutions/PS_Logotipo_.png" alt="logo">
+  </div>
 
   <div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
     <form class="px-5 py-4" method="post" action="{% url 'resultado' %}">
@@ -83,4 +87,22 @@
     </div>
   </div>
 {% endif %}
+
+<div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
+  <p class="p-3 text-justify">
+    Se desarrolló un modelo supervisado de regresión para estimar los resultados de los anuncios en las redes sociales Facebook e Instagram, utilizando una base de datos compuesta por 1,117 registros de anuncios. Se evaluaron 19 modelos de regresión diferentes, incluyendo Gradient Boosting Regressor, Random Forest Regressor, Light Gradient Boosting Machine, Extreme Gradient Boosting, entre otros. Tras la comparación, se determinó que el modelo con el mejor rendimiento fue ExtraTreesRegressor.
+
+ExtraTreesRegressor es un algoritmo de regresión implementado en la biblioteca scikit-learn que forma parte de la familia de métodos de ensemble. Este algoritmo construye múltiples árboles de decisión aleatorios a partir de muestras del conjunto de datos y utiliza el promedio de las predicciones de estos árboles como resultado final. En el proceso de entrenamiento del modelo, se emplearon tres variables categóricas: "Clasificación del Anuncio", "Objetivo del Anuncio", "Red social", y una variable numérica: "Importe Invertido", utilizando el lenguaje Python.
+
+Los indicadores de desempeño del modelo se calcularon como sigue:
+
+- MAE (Error Absoluto Medio): 2142.2045, el valor más bajo entre los 19 modelos.
+- MSE (Error Cuadrático Medio): 18791555.2920, el valor más bajo entre los 19 modelos.
+- RMSE (Raíz del Error Cuadrático Medio): 4123.6347, el valor más bajo entre los 19 modelos.
+- R2 (Coeficiente de Determinación): 0.8554, el valor más alto entre los 19 modelos.
+- RMSLE (Error Medio de Logaritmo Cuadrático): 0.5010, el valor más bajo entre los 19 modelos.
+- MAPE (Error Porcentual Absoluto Medio): 0.4724, el valor más bajo entre los 19 modelos.
+En resumen, el modelo proporciona una precisión del 85.5% en la predicción de los resultados alcanzados por los anuncios, según el indicador R2.
+  </p>
+</div>
 {% endblock %}

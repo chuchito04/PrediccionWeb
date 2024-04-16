@@ -23,7 +23,7 @@ def home(request):
 
 
     return render(request, "home.html",data)
-
+@login_required
 def formulario(request):
     return render(request, "formulario.html")
 
