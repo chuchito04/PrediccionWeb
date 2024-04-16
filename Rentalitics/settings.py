@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&#mc%_dz_9jputs*6o_vqz*l((1lw2-ol$!*5a!mjv&6g=1i*=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prediccion.purpurasolutions.com', '3.17.246.72','localhost','127.0.0.1','34.123.131.26']
+ALLOWED_HOSTS = ['modelo.purpurasolutions.com', '3.17.246.72','localhost','127.0.0.1','34.123.131.26']
 CSRF_TRUSTED_ORIGINS = {'http://alfa.purpurasolutions.com'}
 
 
