@@ -82,7 +82,14 @@
 {% if prediction %} 
   <div class="card rounded-5" style="margin-left:10vw; margin-right:10vw; margin-top:5vh; margin-bottom:5vh;">
     <div class="text-center px-5 py-4">
-        <legend class="card-title fs-2 fw-bold">Resultado de Predicción</legend>
+        <legend class="card-title fs-2 fw-bold">Resultado de Predicción con base en:</legend>
+        <p> Importe Gastado: <b>{{importe}}</b> </p>
+        <p> Clasificación Descripción: <b>{{clasificacion}}</b> </p>
+        <p> Objetivo: <b>{{objetivo}}</b> </p>
+        <p> Red social: <b>{{redsocial}}</b> </p>
+
+
+        
         <p class="card-text fs-5">La predicción del Resultado Alcanzado es: <b>{{ prediction }}</b></p>
     </div>
   </div>

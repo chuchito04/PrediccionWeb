@@ -49,7 +49,15 @@ def predict(request):
         prediction = predict_model(model, data=input_df)['prediction_label'][0]
         prediction_formatted = '{0:,.2f}'.format(prediction)
         
-        return render(request, 'formulario.html', {'prediction': prediction_formatted})
+        data ={
+            'prediction':prediction_formatted,
+            'importe':Importe_gastado,
+            'clasificacion':Clasificacion_descripcion,
+            'objetivo':Objetivo_descripcion,
+            'redsocial':Redsocial_descripcion
+        }
+        
+        return render(request, 'formulario.html', data)
     else:
         # Manejo de otro método HTTP (GET u otros)
         return HttpResponse("Método no permitido.")
